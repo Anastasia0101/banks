@@ -1,0 +1,18 @@
+<form [formGroup]="bankForm" (ngSubmit)="onFormSubmit()" class="form">
+  <label>Введіть назву банку:</label>
+  <input type="text" formControlName="name" class="form__input">
+
+  <label>Кредитний ліміт:</label>
+  <input type="text" formControlName="maxLoan" class="form__input">
+
+  <label>Місячна процентна ставка %:</label>
+  <input type="text" formControlName="interestRate" class="form__input">
+
+  <label>Мінімальний перший внесок:</label>
+  <input type="text" formControlName="minDownPayment" class="form__input">
+
+  <label>Строк погашення кредиту:</label>
+  <input type="text" formControlName="loanTerm" class="form__input">
+
+  <button type="submit" [disabled]="!bankForm.valid">Зберегти</button>
+</form>

@@ -18,13 +18,15 @@ import { AppComponent } from './app.component';
 import { BankDialogComponent } from './components/bank-dialog/bank-dialog.component';
 import { BanksListComponent } from './components/banks-list/banks-list.component';
 import { BankComponent } from './components/bank/bank.component';
+import { BankFormComponent } from './components/bank-form/bank-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BankDialogComponent,
     BanksListComponent,
-    BankComponent
+    BankComponent,
+    BankFormComponent
   ],
   imports: [
     BrowserModule,
