@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
-import { BankFormComponent } from './components/bank-form/bank-form.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { BanksService } from './services/banks.service';
+
+import { AppComponent } from './app.component';
+import { BankDialogComponent } from './components/bank-dialog/bank-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BankFormComponent
+    BankDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -25,9 +30,13 @@ import { BankFormComponent } from './components/bank-form/bank-form.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    BanksService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

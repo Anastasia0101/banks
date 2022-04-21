@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BankFormComponent } from './bank-form.component';
+import { BankDialogComponent } from './bank-dialog.component';
 
-describe('BankFormComponent', () => {
-  let component: BankFormComponent;
-  let fixture: ComponentFixture<BankFormComponent>;
+describe('BankDialogComponent', () => {
+  let component: BankDialogComponent;
+  let fixture: ComponentFixture<BankDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BankFormComponent ]
+      declarations: [ BankDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BankFormComponent);
+    fixture = TestBed.createComponent(BankDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

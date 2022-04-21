@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Bank } from 'src/app/models/bank.model';
+import { MatDialogRef } from '@angular/material/dialog';
+import { BanksService } from 'src/app/services/banks.service';
 
 @Component({
-  selector: 'app-bank-form',
-  templateUrl: './bank-form.component.html',
-  styleUrls: ['./bank-form.component.css']
+  selector: 'app-bank-dialog',
+  templateUrl: './bank-dialog.component.html',
+  styleUrls: ['./bank-dialog.component.css']
 })
-export class BankFormComponent implements OnInit {
+export class BankDialogComponent implements OnInit {
 
   bankForm = this.formBuilder.group({
     name: [
       '', [
         Validators.required,
-        Validators.pattern('[a-zA-Z0-9 ]*')
+        Validators.pattern('[a-zA-ZА-ЯҐЄІЇа-яґєії0-9 ]*'),
+        Validators.min(2),
       ]
     ],
     interestRate: [
@@ -41,14 +44,17 @@ export class BankFormComponent implements OnInit {
       ]
     ],
   });
-  bank?: Bank;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    public dialogRef: MatDialogRef<BankDialogComponent>,
+    private banksService: BanksService
+  ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onFormSubmit(): void {
-    console.log(this.bankForm.value);
+    const bank = this.bankForm.value as Bank;
+    this.banksService.createPoster(bank);
   }
 }
