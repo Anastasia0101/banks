@@ -1,2 +1,26 @@
-<p> {{bank.name}} </p>
-<button (click)="updateBank()">Змінити</button>
+<div class="bank">
+  <h3 class="bank__title">{{bank.name}}</h3>
+  <table class="bank__table table">
+    <tbody>
+      <tr class="table__row">
+        <td>Кредитний ліміт</td>
+        <td>{{bank.maxLoan}} </td>
+      </tr>
+      <tr class="table__row">
+        <td>Місячна процентна ставка</td>
+        <td>{{bank.interestRate}}</td>
+      </tr>
+      <tr class="table__row">
+        <td>Перший мінімальний внесок</td>
+        <td>{{bank.minDownPayment}}</td>
+      </tr>
+      <tr class="table__row">
+        <td>Строк погашення кредиту</td>
+        <td>{{bank.loanTerm}} </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="updateBank()" mat-raised-button color="primary">Змінити</button>
+</div>
+
+

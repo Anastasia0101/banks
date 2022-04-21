@@ -1,3 +1,20 @@
-<app-bank-form *ngIf="bank" [chosenBank]="bank" (bank)="saveBank($event)"></app-bank-form>
+<h1 class="title">Банк</h1>
 
-<button type="button" *ngIf="isDisplay" (click)="deleteBank()">Видалити</button>
+<div class="dialog">
+  <app-bank-form [chosenBank]="bank" (bank)="saveBank($event)"></app-bank-form>
+  <div class="dialog__action">
+    <button
+      type="button"
+      *ngIf="isDisplay"
+      (click)="deleteBank()"
+      mat-button
+      color="warn"
+    >Видалити</button>
+    <button
+      type="button"
+      (click)="closeDialog()"
+      mat-button
+      color="primary"
+    >Закрити</button>
+  </div>
+</div>

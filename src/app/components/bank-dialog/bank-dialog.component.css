@@ -1,0 +1,11 @@
+.title {
+  text-align: center;
+}
+
+.dialog__action {
+  width: 60%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

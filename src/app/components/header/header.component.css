@@ -1,0 +1,21 @@
+.header-items {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  max-width: 700px;
+  margin: 5% auto;
+}
+
+.header-items__title {
+  text-align: center;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  font-size: 3em;
+}
+
+.header-items__button {
+  width: 15%;
+  margin: 0 auto;
+  height: 36px;
+  min-width: 120px;
+}

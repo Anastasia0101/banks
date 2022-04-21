@@ -1,0 +1,20 @@
+.bank {
+  font-size: 15px;
+  width: 21em;
+  box-sizing: border-box;
+  border: 3px solid rgba(116, 58, 213, 0.5);
+  border-radius: 5%;
+  padding: 0.5em;
+}
+
+.bank__title {
+  font-family: 'Lora', serif;
+  text-decoration: underline;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.bank__table {
+  margin: 0.5em 0;
+  width: 100%;
+}

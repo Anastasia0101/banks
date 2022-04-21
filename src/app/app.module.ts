@@ -11,6 +11,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 import { BanksService } from './services/banks.service';
 
@@ -19,6 +22,7 @@ import { BankDialogComponent } from './components/bank-dialog/bank-dialog.compon
 import { BanksListComponent } from './components/banks-list/banks-list.component';
 import { BankComponent } from './components/bank/bank.component';
 import { BankFormComponent } from './components/bank-form/bank-form.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { BankFormComponent } from './components/bank-form/bank-form.component';
     BankDialogComponent,
     BanksListComponent,
     BankComponent,
-    BankFormComponent
+    BankFormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,10 @@ import { BankFormComponent } from './components/bank-form/bank-form.component';
     AngularFireAuthModule,
     AngularFireStorageModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [
     BanksService

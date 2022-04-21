@@ -17,6 +17,7 @@ export class BankComponent {
   updateBank(): void {
     const dialogRef = this.dialog.open(BankDialogComponent, {
       width: '50%',
+      maxWidth: '700px',
       data: this.bank
     });
     dialogRef.afterClosed().subscribe();

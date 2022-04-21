@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+.form__field {
+  width: 80%;
+  max-width: 500px;
+  margin: 0.5em auto;
+}
+
+mat-form-field label {
+  font-size: 20px;
+  font-family: 'Lora', serif;
+}

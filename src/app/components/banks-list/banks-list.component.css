@@ -1,0 +1,10 @@
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+.list__item {
+  margin: 1em;
+}
