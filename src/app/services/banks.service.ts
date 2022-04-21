@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { AngularFirestore, Settings } from "@angular/fire/compat/firestore";
 import { Observable } from "rxjs";
 import { Bank } from "../models/bank.model";
 
@@ -21,5 +21,9 @@ export class BanksService {
 
   updateBank(id: string, bank: Bank): void {
     this.fireStore.collection<Bank>('banks').doc(id).update(bank);
+  }
+
+  deleteBank(id: string): void {
+    this.fireStore.collection<Bank>('banks').doc(id).delete();
   }
 }

@@ -44,6 +44,7 @@ export class BankDialogComponent implements OnInit {
       ]
     ],
   });
+  isDisplay = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,6 +55,7 @@ export class BankDialogComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.bank) {
+      this.isDisplay = true;
       this.bankForm.patchValue({
         name: this.bank.name,
         interestRate: this.bank.interestRate,
@@ -76,6 +78,11 @@ export class BankDialogComponent implements OnInit {
 
   updateBank(id: string, bank: Bank): void {
     this.banksService.updateBank(id, bank);
+  }
+
+  deleteBank(): void {
+    this.closeDialog();
+    this.banksService.deleteBank(this.bank.id);
   }
 
   closeDialog(): void {

@@ -15,4 +15,5 @@
   <input type="text" formControlName="loanTerm" class="form__input">
 
   <button type="submit" [disabled]="!bankForm.valid">Зберегти</button>
+  <button type="button" *ngIf="isDisplay" (click)="deleteBank()">Видалити</button>
 </form>
