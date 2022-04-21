@@ -1,0 +1,5 @@
+<ul *ngIf="banks">
+  <li *ngFor="let bank of banks">
+    <app-bank [bank]="bank"></app-bank>
+  </li>
+</ul>

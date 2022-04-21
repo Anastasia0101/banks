@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Bank } from 'src/app/models/bank.model';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BanksService } from 'src/app/services/banks.service';
 
 @Component({
@@ -48,13 +48,37 @@ export class BankDialogComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<BankDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public bank: Bank,
     private banksService: BanksService
-  ) { }
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.bank) {
+      this.bankForm.patchValue({
+        name: this.bank.name,
+        interestRate: this.bank.interestRate,
+        maxLoan: this.bank.maxLoan,
+        minDownPayment: this.bank.minDownPayment,
+        loanTerm: this.bank.loanTerm
+      });
+    }
+  }
 
   onFormSubmit(): void {
+    this.closeDialog();
     const bank = this.bankForm.value as Bank;
-    this.banksService.createPoster(bank);
+    !this.bank ? this.createBank(bank) : this.updateBank(this.bank.id, bank);
+  }
+
+  createBank(bank: Bank): void {
+    this.banksService.createBank(bank);
+  }
+
+  updateBank(id: string, bank: Bank): void {
+    this.banksService.updateBank(id, bank);
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close();
   }
 }

@@ -14,8 +14,6 @@ export class AppComponent {
     const dialogRef = this.dialog.open(BankDialogComponent, {
       width: '50%',
     });
-
     dialogRef.afterClosed().subscribe();
   }
-
 }

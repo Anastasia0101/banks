@@ -16,11 +16,15 @@ import { BanksService } from './services/banks.service';
 
 import { AppComponent } from './app.component';
 import { BankDialogComponent } from './components/bank-dialog/bank-dialog.component';
+import { BanksListComponent } from './components/banks-list/banks-list.component';
+import { BankComponent } from './components/bank/bank.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BankDialogComponent
+    BankDialogComponent,
+    BanksListComponent,
+    BankComponent
   ],
   imports: [
     BrowserModule,
