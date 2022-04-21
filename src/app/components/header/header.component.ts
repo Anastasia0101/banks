@@ -20,6 +20,6 @@ export class HeaderComponent implements OnInit {
       width: '50%',
       maxWidth: '700px'
     });
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed();
   }
 }

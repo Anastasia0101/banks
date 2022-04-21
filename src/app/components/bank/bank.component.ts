@@ -20,6 +20,6 @@ export class BankComponent {
       maxWidth: '700px',
       data: this.bank
     });
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed();
   }
 }

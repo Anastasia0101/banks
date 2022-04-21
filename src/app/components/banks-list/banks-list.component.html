@@ -1,6 +1,6 @@
 <app-header></app-header>
-<ul *ngIf="banks" class="list">
-  <li *ngFor="let bank of banks" class="list__item">
+<ul *ngIf="banks$" class="list">
+  <li *ngFor="let bank of banks$ | async" class="list__item">
     <app-bank [bank]="bank"></app-bank>
   </li>
 </ul>
