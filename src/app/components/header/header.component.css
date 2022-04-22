@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 60%;
   max-width: 700px;
-  margin: 5% auto;
+  margin: 0 auto 5%;
 }
 
 .header-items__title {
@@ -11,6 +11,7 @@
   font-family: 'Lora', serif;
   font-weight: 500;
   font-size: 3em;
+  margin-top: 5%;
 }
 
 .header-items__button {
@@ -18,4 +19,17 @@
   margin: 0 auto;
   height: 36px;
   min-width: 120px;
+}
+
+.header-items__link {
+  text-align: center;
+  margin: 1em auto;
+  color: #5D057A;
+  text-decoration: none;
+  font-family: Lora, serif;
+  font-size: 1.5em;
+}
+
+.header-items__link:hover{
+  text-decoration: underline;
 }

@@ -19,6 +19,7 @@ export class MortgageFormComponent implements OnInit {
       '', [
         Validators.required,
         Validators.pattern('[0-9]*'),
+        Validators.min(1000)
       ]
     ],
     downPayment: [

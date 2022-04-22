@@ -25,7 +25,9 @@ import { BankComponent } from './components/bank/bank.component';
 import { BankFormComponent } from './components/bank-form/bank-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MortgageFormComponent } from './modules/mortgage-calculartor/components/mortgage-form/mortgage-form.component';
-import { MortgagePageComponent } from './modules/mortgage-calculartor/components/mortgage-page/mortgage-page.component';
+import { BanksPageComponent } from './views/banks-page/banks-page.component';
+import { MortgagePageComponent } from './views/mortgage-page/mortgage-page.component';
+import { StartPageComponent } from './views/start-page/start-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { MortgagePageComponent } from './modules/mortgage-calculartor/components
     HeaderComponent,
     MortgageFormComponent,
     MortgagePageComponent,
+    BanksPageComponent,
+    StartPageComponent,
   ],
   imports: [
     BrowserModule,
