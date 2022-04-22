@@ -1,0 +1,36 @@
+<form [formGroup]="mortgageForm">
+  <mat-form-field>
+    <mat-label>Виберіть банк</mat-label>
+    <mat-select formControlName="bank">
+      <mat-option *ngFor="let bank of banks$ | async" [value]="bank">
+        {{bank.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div [hidden]="!chosenBank">
+    <mat-form-field class="form__field">
+      <mat-label>Початковий кредиту, грн:</mat-label>
+      <mat-error *ngIf="mortgageForm.controls['initialLoan'].invalid">
+        Сумма введена неправильно або не відповідає умовам кредиту обраного банку
+      </mat-error>
+      <input matInput type="text" formControlName="initialLoan">
+    </mat-form-field>
+
+    <mat-form-field class="form__field">
+      <mat-label>Перший внесок, грн:</mat-label>
+      <input matInput type="text" formControlName="downPayment">
+      <mat-error *ngIf="mortgageForm.controls['downPayment'].invalid">
+        Сумма введена неправильно або не відповідає умовам кредиту обраного банку
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="!mortgageForm.valid"
+      class="form__field"
+    >Зберегти</button>
+  </div>
+</form>

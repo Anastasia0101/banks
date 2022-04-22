@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 
 import { BanksService } from './services/banks.service';
 
@@ -23,6 +24,7 @@ import { BanksListComponent } from './components/banks-list/banks-list.component
 import { BankComponent } from './components/bank/bank.component';
 import { BankFormComponent } from './components/bank-form/bank-form.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MortgageFormComponent } from './modules/mortgage-calculartor/components/mortgage-form/mortgage-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { HeaderComponent } from './components/header/header.component';
     BanksListComponent,
     BankComponent,
     BankFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    MortgageFormComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { HeaderComponent } from './components/header/header.component';
     MatDialogModule,
     MatInputModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [
     BanksService
