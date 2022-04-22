@@ -24,10 +24,10 @@ import { BanksListComponent } from './components/banks-list/banks-list.component
 import { BankComponent } from './components/bank/bank.component';
 import { BankFormComponent } from './components/bank-form/bank-form.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MortgageFormComponent } from './modules/mortgage-calculartor/components/mortgage-form/mortgage-form.component';
+import { MortgageFormComponent } from './components/mortgage-form/mortgage-form.component';
 import { BanksPageComponent } from './views/banks-page/banks-page.component';
 import { MortgagePageComponent } from './views/mortgage-page/mortgage-page.component';
-import { StartPageComponent } from './views/start-page/start-page.component';
+import { MortgageService } from './services/mortgage.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,6 @@ import { StartPageComponent } from './views/start-page/start-page.component';
     MortgageFormComponent,
     MortgagePageComponent,
     BanksPageComponent,
-    StartPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +58,8 @@ import { StartPageComponent } from './views/start-page/start-page.component';
     MatSelectModule
   ],
   providers: [
-    BanksService
+    BanksService,
+    MortgageService
   ],
   bootstrap: [AppComponent]
 })

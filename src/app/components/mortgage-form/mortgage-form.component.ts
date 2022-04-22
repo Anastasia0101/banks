@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Bank } from 'src/app/models/bank.model';
-import { BanksService } from 'src/app/services/banks.service';
+import { BanksService } from '../../services/banks.service';
 import { MortgageService } from '../../services/mortgage.service';
 
 @Component({
@@ -43,11 +43,15 @@ export class MortgageFormComponent implements OnInit {
     this.banks$ = this.banksService.getBanks();
     this.mortgageForm.get("bank")?.valueChanges.subscribe((bank: Bank) => {
       this.chosenBank = bank;
+      const validators = [
+        Validators.max(bank.maxLoan+1),
+        Validators.min(bank.minDownPayment-1)
+      ];
       this.mortgageForm.controls['initialLoan'].addValidators([
-        Validators.max(bank.maxLoan+1)
+        ...validators
       ]);
       this.mortgageForm.controls['downPayment'].addValidators([
-        Validators.min(bank.minDownPayment-1)
+        ...validators
       ]);
     });
   }
