@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Bank } from 'src/app/models/bank.model';
 import { BanksService } from 'src/app/services/banks.service';
+import { MortgageService } from '../../services/mortgage.service';
 
 @Component({
   selector: 'app-mortgage-form',
@@ -29,10 +30,12 @@ export class MortgageFormComponent implements OnInit {
   });
   banks$!: Observable<Bank[]>;
   chosenBank?: Bank;
+  monthlyPayment!: number;
 
   constructor(
     private formBuilder: FormBuilder,
-    private banksService: BanksService
+    private banksService: BanksService,
+    private mortgageService: MortgageService
   ) { }
 
   ngOnInit(): void {
@@ -40,11 +43,22 @@ export class MortgageFormComponent implements OnInit {
     this.mortgageForm.get("bank")?.valueChanges.subscribe((bank: Bank) => {
       this.chosenBank = bank;
       this.mortgageForm.controls['initialLoan'].addValidators([
-        Validators.max(bank.maxLoan)
+        Validators.max(bank.maxLoan+1)
       ]);
       this.mortgageForm.controls['downPayment'].addValidators([
-        Validators.min(bank.minDownPayment)
+        Validators.min(bank.minDownPayment-1)
       ]);
     });
+  }
+
+  onSubmit(): void {
+    if (this.chosenBank) {
+      this.monthlyPayment = this.mortgageService.calcMonthlyPayment(
+        this.mortgageForm.value.initialLoan,
+        this.mortgageForm.value.downPayment,
+        this.chosenBank.interestRate,
+        this.chosenBank.loanTerm
+      );
+    }
   }
 }

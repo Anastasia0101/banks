@@ -1,4 +1,4 @@
-<form [formGroup]="mortgageForm">
+<form [formGroup]="mortgageForm" (ngSubmit)="onSubmit()" class="form">
   <mat-form-field>
     <mat-label>Виберіть банк</mat-label>
     <mat-select formControlName="bank">
@@ -10,7 +10,7 @@
 
   <div [hidden]="!chosenBank">
     <mat-form-field class="form__field">
-      <mat-label>Початковий кредиту, грн:</mat-label>
+      <mat-label>Початковий кредит, грн:</mat-label>
       <mat-error *ngIf="mortgageForm.controls['initialLoan'].invalid">
         Сумма введена неправильно або не відповідає умовам кредиту обраного банку
       </mat-error>
@@ -30,7 +30,8 @@
       mat-raised-button
       color="primary"
       [disabled]="!mortgageForm.valid"
-      class="form__field"
-    >Зберегти</button>
+      class="form__button"
+    >Розрахувати</button>
+    <p *ngIf="monthlyPayment">Результат: {{monthlyPayment}}</p>
   </div>
 </form>

@@ -25,6 +25,7 @@ import { BankComponent } from './components/bank/bank.component';
 import { BankFormComponent } from './components/bank-form/bank-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MortgageFormComponent } from './modules/mortgage-calculartor/components/mortgage-form/mortgage-form.component';
+import { MortgagePageComponent } from './modules/mortgage-calculartor/components/mortgage-page/mortgage-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MortgageFormComponent } from './modules/mortgage-calculartor/components
     BankComponent,
     BankFormComponent,
     HeaderComponent,
-    MortgageFormComponent
+    MortgageFormComponent,
+    MortgagePageComponent,
   ],
   imports: [
     BrowserModule,
