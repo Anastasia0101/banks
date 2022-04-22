@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Bank } from 'src/app/models/bank.model';
 import { BanksService } from '../../services/banks.service';
 import { MortgageService } from '../../services/mortgage.service';
@@ -32,6 +32,7 @@ export class MortgageFormComponent implements OnInit {
   banks$!: Observable<Bank[]>;
   chosenBank?: Bank;
   monthlyPayment!: number;
+  subcription$?: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,7 +42,7 @@ export class MortgageFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.banks$ = this.banksService.getBanks();
-    this.mortgageForm.get("bank")?.valueChanges.subscribe((bank: Bank) => {
+    this.subcription$ = this.mortgageForm.get("bank")?.valueChanges.subscribe((bank: Bank) => {
       this.chosenBank = bank;
       const validators = [
         Validators.max(bank.maxLoan+1),
@@ -65,5 +66,9 @@ export class MortgageFormComponent implements OnInit {
         this.chosenBank.loanTerm
       );
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this.subcription$) this.subcription$.unsubscribe();
   }
 }
